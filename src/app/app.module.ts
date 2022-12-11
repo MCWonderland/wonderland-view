@@ -7,12 +7,14 @@ import {AuthLayoutComponent} from './layout/auth-layout/auth-layout.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
+import { NavbarComponent } from './layout/content-layout/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthLayoutComponent,
-    ContentLayoutComponent
+    ContentLayoutComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
