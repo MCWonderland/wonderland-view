@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+
 $theme-colors: (
   "primary": #348b04,
   "secondary": #6d7371,
@@ -17,6 +18,7 @@ $card-cap-bg: #383838;
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 html {
   background-color: #2a2624;

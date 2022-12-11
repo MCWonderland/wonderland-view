@@ -27,20 +27,15 @@
           <div>
             <img src="https://cravatar.eu/helmavatar/3ef00017-d2b8-4bab-a340-c6fb393713c5/64" class="me-4">
           </div>
-          <div class="my-auto">
-            <h5 class="card-title">歡迎回來: LU__LU</h5>
+          <div class="my-auto d-flex w-100 justify-content-between">
+            <div class="h5 my-auto card-title">
+              <div>魯大頭#6666 (LU__LU)</div>
+            </div>
+            <div class="ms-2">
+              <a href="#" class="btn btn-outline-secondary">登出</a>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="card mt-4">
-      <div class="card-header">
-        個人資料
-      </div>
-      <div class="card-body">
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
       </div>
     </div>
 
@@ -49,24 +44,42 @@
         報名本週 Weekly Cup
       </div>
       <div class="card-body">
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        <div>
+          <p class="card-text">本週的 Weekly Cup 將於 2022/12/11 號晚上 20:30 開始</p>
+          <a href="#" class="btn btn-outline-secondary me-2">什麼是 Weekly Cup?</a>
+          <a href="#" class="btn btn-warning">立即報名</a>
+        </div>
       </div>
     </div>
 
     <div class="card mt-4">
-      <div class="card-header">贊助</div>
+      <div class="card-header">目前參賽選手</div>
       <div class="card-body">
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        <table class="table text-white table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Discord 名稱</th>
+              <th scope="col">遊戲 ID</th>
+              <th scope="col">報名時間</th>
+            </tr>
+          </thead>
+          <tbody class="align-middle">
+            <tr *ngFor="let i of [1,1,1,1,1,1,1,1,1,1]">
+              <td>
+                <img src="https://cravatar.eu/helmavatar/3ef00017-d2b8-4bab-a340-c6fb393713c5/32" class="me-4">
+              </td>
+              <td>魯大頭#6666</td>
+              <td>LU__LU</td>
+              <td>2022/12/10 09:52</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-<!--      <a href="https://dragonshop.org/product/mcwonderland/">-->
-<!--        <img src="assets/img/mouse-pad.png" class="card-img-bottom" alt="...">-->
-<!--      </a>-->
     </div>
 
     <div class="card mt-4">
-      <div class="card-header">社群平台</div>
+      <div class="card-header">Discord 主社群</div>
       <div class="card-body">
         <div class="card-text">
           <iframe
@@ -78,7 +91,15 @@
             sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
           </iframe>
         </div>
+      </div>
+    </div>
 
+
+    <div class="card mt-4">
+      <div class="card-header">其他社群</div>
+      <div class="card-body d-flex">
+        <p class="card-text me-2 my-auto">關注我們的 Github</p>
+        <a href="https://github.com/MCWonderland" target="_blank" class="bi bi-github social-icon"></a>
       </div>
     </div>
   </div>
