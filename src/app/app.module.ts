@@ -6,11 +6,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AuthLayoutComponent} from './layout/auth-layout/auth-layout.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
+import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    ContentLayoutComponent
   ],
   imports: [
     BrowserModule,

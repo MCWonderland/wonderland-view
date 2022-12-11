@@ -1,4 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
+$theme-colors: (
+  "primary": #348b04,
+  "secondary": #6d7371,
+  "success": #28a745,
+  "info": #33c6f6,
+  "warning": #ffc107,
+  "danger": #dc3545,
+  "light": #f8f9fa,
+  "nav": #343433,
+  "dark": #2a2624,
+);
+
+$card-bg: #343433;
+$card-cap-bg: #383838;
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+html {
+  background-color: #2a2624;
+}
+
+body {
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+}
+
+.card-header {
+  font-size: $font-size-lg;
+}
