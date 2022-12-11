@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {LoginDataService} from "../../../data/service/login-data.service";
 
 @Component({
   selector: 'app-discord-logging-in',
@@ -9,11 +10,17 @@ import {ActivatedRoute} from "@angular/router";
 export class DiscordLoggingInComponent implements OnInit {
 
   code: string = ""
-  constructor(private route: ActivatedRoute) {
+
+  constructor(private route: ActivatedRoute,
+              private loginDataService: LoginDataService) {
   }
 
   ngOnInit(): void {
     this.code = this.route.snapshot.queryParamMap.get('code') || "";
+    this.doLogin()
   }
 
+  private doLogin() {
+    this.loginDataService.loginDiscord({code: this.code}).subscribe()
+  }
 }
