@@ -22,14 +22,14 @@
 
   <div class="col-4">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body" *ngIf="user">
         <div class="d-flex">
           <div>
-            <img src="https://cravatar.eu/helmavatar/3ef00017-d2b8-4bab-a340-c6fb393713c5/64" class="me-4">
+            <img [src]="avatarUrl(user, 64)" class="me-4">
           </div>
           <div class="my-auto d-flex w-100 justify-content-between">
             <div class="h5 my-auto card-title">
-              <div>魯大頭#6666 (LU__LU)</div>
+              <div>歡迎回來: {{user.discordUsername}} ({{user.mcUsername}})</div>
             </div>
             <div class="ms-2">
               <a href="#" class="btn btn-outline-secondary">登出</a>
@@ -65,12 +65,12 @@
             </tr>
           </thead>
           <tbody class="align-middle">
-            <tr *ngFor="let i of [1,1,1,1,1,1,1,1,1,1]">
+            <tr *ngFor="let user of registrations">
               <td>
-                <img src="https://cravatar.eu/helmavatar/3ef00017-d2b8-4bab-a340-c6fb393713c5/32" class="me-4">
+                <img [src]="avatarUrl(user,32)" class="me-4">
               </td>
-              <td>魯大頭#6666</td>
-              <td>LU__LU</td>
+              <td>{{user.discordUsername}}</td>
+              <td>{{user.mcUsername}}</td>
               <td>2022/12/10 09:52</td>
             </tr>
           </tbody>

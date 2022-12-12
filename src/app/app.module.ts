@@ -6,8 +6,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AuthLayoutComponent} from './layout/auth-layout/auth-layout.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
-import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
-import { NavbarComponent } from './layout/content-layout/navbar/navbar.component';
+import {ContentLayoutComponent} from './layout/content-layout/content-layout.component';
+import {NavbarComponent} from './layout/content-layout/navbar/navbar.component';
+import {JwtModule} from "@auth0/angular-jwt";
 
 @NgModule({
   declarations: [
@@ -20,9 +21,15 @@ import { NavbarComponent } from './layout/content-layout/navbar/navbar.component
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        allowedDomains: ["*"],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
