@@ -26,4 +26,14 @@ export class DashboardComponent implements OnInit {
     return `https://cravatar.eu/helmavatar/${this.user?.mcId}/${size}`
   }
 
+  isRegisteredForWeekly(): boolean {
+    return this.registrations.some(registration => registration.id === this.user?.id)
+  }
+
+  toggleRegister() {
+    if (this.isRegisteredForWeekly())
+      this.registrations = this.registrations.filter(registration => registration.id !== this.user?.id)
+    else
+      this.registrations.push(this.user!)
+  }
 }

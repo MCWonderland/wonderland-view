@@ -45,9 +45,19 @@
       </div>
       <div class="card-body">
         <div>
+          <div *ngIf="isRegisteredForWeekly()">
+            <div class="alert alert-success">
+              你已經報名本週 Weekly Cup 了！
+            </div>
+          </div>
           <p class="card-text">本週的 Weekly Cup 將於 2022/12/11 號晚上 20:30 開始</p>
-          <a href="#" class="btn btn-outline-secondary me-2">什麼是 Weekly Cup?</a>
-          <a href="#" class="btn btn-warning">立即報名</a>
+          <div class="d-flex">
+            <a href="#" class="btn btn-outline-secondary me-2">什麼是 Weekly Cup?</a>
+            <div [ngSwitch]="isRegisteredForWeekly()">
+              <button (click)="toggleRegister()" *ngSwitchCase="true" class="btn btn-outline-danger">取消報名</button>
+              <button (click)="toggleRegister()" *ngSwitchCase="false" class="btn btn-warning">立即報名</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
