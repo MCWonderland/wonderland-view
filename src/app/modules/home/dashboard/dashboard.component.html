@@ -29,7 +29,7 @@
           </div>
           <div class="my-auto d-flex w-100 justify-content-between">
             <div class="h5 my-auto card-title">
-              <div>歡迎回來: {{user.discordUsername}} ({{user.mcUsername}})</div>
+              <div>歡迎回來: {{user.discordProfile.username}} ({{user.mcProfile.username}})</div>
             </div>
             <div class="ms-2">
               <a href="#" class="btn btn-outline-secondary">登出</a>
@@ -79,8 +79,8 @@
               <td>
                 <img [src]="avatarUrl(user,32)" class="me-4">
               </td>
-              <td>{{user.discordUsername}}</td>
-              <td>{{user.mcUsername}}</td>
+              <td>{{user.discordProfile.username}}</td>
+              <td>{{user.mcProfile.username}}</td>
               <td>2022/12/10 09:52</td>
             </tr>
           </tbody>

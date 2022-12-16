@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   }
 
   avatarUrl(user: User, size: number): string {
-    return `https://cravatar.eu/helmavatar/${this.user?.mcId}/${size}`
+    return `https://cravatar.eu/helmavatar/${user.mcProfile.uuid}/${size}`
   }
 
   isRegisteredForWeekly(): boolean {

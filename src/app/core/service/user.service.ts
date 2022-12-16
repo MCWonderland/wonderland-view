@@ -20,7 +20,29 @@ export class UserService {
     if (!token)
       return undefined;
 
-    return this.jwtHelperService.decodeToken(token);
+    const tokenUser = this.jwtHelperService.decodeToken(token) as TokenUser;
+
+    return {
+      isAdmin: tokenUser.isAdmin,
+      id: tokenUser.id,
+      mcProfile: {
+        uuid: tokenUser.mcId,
+        username: tokenUser.mcUsername
+      },
+      discordProfile: {
+        id: tokenUser.discordId,
+        username: tokenUser.discordUsername
+      }
+    }
   }
 
+}
+
+interface TokenUser {
+  id: string
+  discordId: string
+  discordUsername: string
+  mcId: string
+  mcUsername: string
+  isAdmin: boolean
 }
