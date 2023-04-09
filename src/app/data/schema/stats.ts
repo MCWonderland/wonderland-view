@@ -3,7 +3,7 @@ export interface GameRecord {
   title: string;
   description: string;
   videoUrl: string;
-  date: Date;
+  date: string;
   duration: number;
 
   arenaId: string;

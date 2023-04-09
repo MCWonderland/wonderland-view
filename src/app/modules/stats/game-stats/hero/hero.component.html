@@ -1,14 +1,14 @@
 <div class="row d-flex align-items-center">
-  <div class="col-md-2" style="padding: 0;">
+  <div class="col-md-3" style="padding: 0;">
     <div class="container-fluid h-100">
       <div class="row h-100 justify-content-center align-items-center">
-        <ng-container *ngFor="let player of gameRecord.teamStats[0].members">
-          <div class="col my-2">
+        <ng-container *ngFor="let uuid of gameRecord.teamStats[0].members">
+          <div class="col-12 my-2">
             <div class="card d-flex flex-row align-items-center">
-              <img [src]="'https://crafatar.com/avatars/' + player + '?size=64'" class="card-img-top"
-                alt="Minecraft Head">
+              <img [src]="'https://crafatar.com/avatars/' + uuid + '?size=64'" class="card-img-top p-3"
+                alt="Minecraft Head" style="width: 128px; height: 128px">
               <div class="card-body">
-                <h5 class="card-title">{{ player }}</h5>
+                <h5 class="card-title text-center">{{ (getPlayerName(uuid)) }}</h5>
               </div>
             </div>
           </div>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="col-md-8 text-center h-100" style="padding: 0;">
+  <div class="col-md-6 text-center h-100" style="padding: 0;">
     <div class="row justify-content-center">
       <div class="col-6">
         <h1>{{ gameRecord.title }}</h1>
@@ -35,7 +35,7 @@
             </tr>
             <tr>
               <td>賽事日期</td>
-              <td>{{ gameRecord.date.toLocaleDateString() }} ({{ gameRecord.date.toLocaleTimeString() }})</td>
+              <td>{{formatDate(gameRecord.date)}}</td>
             </tr>
             <tr>
               <td>地圖</td>
@@ -51,16 +51,16 @@
     </div>
   </div>
 
-  <div class="col-md-2" style="padding: 0;">
+  <div class="col-md-3" style="padding: 0;">
     <div class="container-fluid h-100">
       <div class="row h-100 justify-content-center align-items-center">
-        <ng-container *ngFor="let player of gameRecord.teamStats[1].members">
-          <div class="col my-2">
+        <ng-container *ngFor="let uuid of gameRecord.teamStats[1].members">
+          <div class="col-12 my-2">
             <div class="card d-flex flex-row align-items-center">
-              <img [src]="'https://crafatar.com/avatars/' + player + '?size=64'" class="card-img-top"
-                alt="Minecraft Head">
+              <img [src]="'https://crafatar.com/avatars/' + uuid + '?size=64'" class="card-img-top p-3"
+                alt="Minecraft Head" style="width: 128px; height: 128px">
               <div class="card-body">
-                <h5 class="card-title">{{ player }}</h5>
+                <h5 class="card-title text-center">{{ (getPlayerName(uuid)) }}</h5>
               </div>
             </div>
           </div>

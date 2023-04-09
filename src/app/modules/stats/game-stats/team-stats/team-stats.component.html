@@ -22,7 +22,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let playerStats of getPlayerStatsInTeam()">
-            <td>{{ playerStats.owner }}</td>
+            <td>{{ getPlayerName(playerStats) }}</td>
             <td>
               <app-kit-record [changes]="playerStats.kitChanges"></app-kit-record>
             </td>
@@ -45,6 +45,7 @@
         <thead>
           <tr>
             <th>玩家</th>
+            <th>職業</th>
             <th>挖礦</th>
             <th>擊殺</th>
             <th>總經濟</th>
@@ -52,10 +53,13 @@
         </thead>
         <tbody>
           <tr *ngFor="let playerStats of getPlayerStatsInTeam()">
-            <td class="w-25">{{ playerStats.owner }}</td>
-            <td class="w-25">{{ service.getEcoFor(playerStats, "MINE") }}</td>
-            <td class="w-25">{{ service.getEcoFor(playerStats, "KILL") }}</td>
-            <td class="w-25">{{ service.getTotalEco(playerStats) }}</td>
+            <td class="w-25">{{ getPlayerName(playerStats) }}</td>
+            <td>
+              <app-kit-record [changes]="playerStats.kitChanges"></app-kit-record>
+            </td>
+            <td>{{ service.getEcoFor(playerStats, "MINE") }}</td>
+            <td>{{ service.getEcoFor(playerStats, "KILL") }}</td>
+            <td>{{ service.getTotalEco(playerStats) }}</td>
           </tr>
         </tbody>
       </table>
