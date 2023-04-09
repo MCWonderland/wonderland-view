@@ -1,0 +1,66 @@
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+
+  <li ngbNavItem [disabled]="true" class="nav-item">
+    <a ngbNavLink class="text-danger fw-bold">{{teamStats.color}} 數據</a>
+  </li>
+
+  <li [ngbNavItem]="1">
+    <a ngbNavLink>基礎數據</a>
+    <ng-template ngbNavContent>
+      <table class="table text-white">
+        <thead>
+          <tr>
+            <th>玩家</th>
+            <th>職業</th>
+            <th>擊殺數</th>
+            <th>死亡數</th>
+            <th>核心傷害輸出</th>
+            <th>玩家傷害輸出</th>
+            <th>藥水投擲數</th>
+            <th>藥水準確率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let playerStats of getPlayerStatsInTeam()">
+            <td>{{ playerStats.owner }}</td>
+            <td>
+              <app-kit-record [changes]="playerStats.kitChanges"></app-kit-record>
+            </td>
+            <td>{{ playerStats.kills }}</td>
+            <td>{{ playerStats.deaths }}</td>
+            <td>{{ playerStats.coreDamages.toFixed(0) }}</td>
+            <td>{{ playerStats.playerDamages.toFixed(0) }}</td>
+            <td>{{ playerStats.potionSplashed }}</td>
+            <td>{{ getPotionAcc(playerStats) }} %</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </li>
+
+  <li [ngbNavItem]="2">
+    <a ngbNavLink>經濟數據</a>
+    <ng-template ngbNavContent>
+      <table class="table text-white">
+        <thead>
+          <tr>
+            <th>玩家</th>
+            <th>挖礦</th>
+            <th>擊殺</th>
+            <th>總經濟</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let playerStats of getPlayerStatsInTeam()">
+            <td class="w-25">{{ playerStats.owner }}</td>
+            <td class="w-25">{{ service.getEcoFor(playerStats, "MINE") }}</td>
+            <td class="w-25">{{ service.getEcoFor(playerStats, "KILL") }}</td>
+            <td class="w-25">{{ service.getTotalEco(playerStats) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </li>
+
+</ul>
+<div [ngbNavOutlet]="nav" class="mt-2"></div>

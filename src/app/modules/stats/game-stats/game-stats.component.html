@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <app-stats-hero [gameRecord]="gameRecord"></app-stats-hero>
+  <div class="section-break"></div>
+  <app-game-stages [gameRecord]="gameRecord"></app-game-stages>
+  <div class="section-break"></div>
+
+  <h1 class="text-center">團隊數據</h1>
+  <div *ngFor="let team of gameRecord.teamStats" class="mt-5">
+    <app-team-stats [teamStats]="team" [gameRecord]="gameRecord"></app-team-stats>
+  </div>
+
+  <div class="section-break"></div>
+  <app-team-compare
+    [gameRecord]="gameRecord"
+    [leftTeamColor]="gameRecord.teamStats[0].color"
+    [rightTeamColor]="gameRecord.teamStats[1].color"
+  >
+  </app-team-compare>
+
+</div>
