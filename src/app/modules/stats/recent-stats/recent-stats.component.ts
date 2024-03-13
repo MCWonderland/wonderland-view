@@ -4,7 +4,6 @@ import {McplayerService} from "../../../core/service/mcplayer.service";
 import {DateService} from "../../../core/service/date.service";
 import {StatsDataService} from "../../../data/service/stats-data.service";
 import {Router} from "@angular/router";
-import Fakes from "../../../../tests/Fakes";
 
 @Component({
   selector: 'app-recent-stats',
@@ -13,9 +12,7 @@ import Fakes from "../../../../tests/Fakes";
 })
 export class RecentStatsComponent implements OnInit {
 
-  gameRecords: GameRecord[] = [
-    Fakes.createGameRecord()
-  ]
+  gameRecords: GameRecord[] = []
 
   constructor(
     private mcPlayerService: McplayerService,
