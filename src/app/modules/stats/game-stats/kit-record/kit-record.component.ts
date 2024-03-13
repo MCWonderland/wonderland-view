@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {KitChangeRecord} from "../../../../data/schema/stats";
+import {DateService} from "../../../../core/service/date.service";
 
 @Component({
   selector: 'app-kit-record',
@@ -11,10 +12,16 @@ export class KitRecordComponent implements OnInit {
   @Input()
   changes!: KitChangeRecord[]
 
-  constructor() {
+  constructor(
+    private dateService: DateService
+  ) {
   }
 
   ngOnInit(): void {
+  }
+
+  formatDuration(time: number): string {
+    return this.dateService.formatDuration(time)
   }
 
   getFirstKit(): string {

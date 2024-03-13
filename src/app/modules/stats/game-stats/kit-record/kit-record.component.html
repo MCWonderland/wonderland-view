@@ -10,7 +10,7 @@
       <tbody>
         <tr *ngFor="let kit of changes">
           <td>{{kit.kit}}</td>
-          <td>{{kit.gameTime}}</td>
+          <td>{{formatDuration(kit.gameTime)}}</td>
         </tr>
       </tbody>
     </table>
