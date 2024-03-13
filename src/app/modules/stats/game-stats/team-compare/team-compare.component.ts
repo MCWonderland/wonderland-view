@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {GameRecord, PlayerStats} from "../../../../data/schema/stats";
 import {PlayerStatsService} from "../../../../core/service/player-stats.service";
 import {TeamAbilityStatsService} from "../../../../core/service/team-ability-stats.service";
+import {TeamColor} from "../../../../core/service/record.service";
 
 @Component({
   selector: 'app-team-compare',
@@ -14,9 +15,9 @@ export class TeamCompareComponent implements OnInit {
   gameRecord!: GameRecord
 
   @Input()
-  leftTeamColor!: string
+  leftTeamColor!: TeamColor
   @Input()
-  rightTeamColor!: string
+  rightTeamColor!: TeamColor
 
   teamStatsSum: TeamStatsRow[] = []
   abilityStatsSum: TeamStatsRow[] = []

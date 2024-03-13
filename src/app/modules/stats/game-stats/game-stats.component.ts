@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {GameRecord} from "../../../data/schema/stats";
+import {GameRecord, TeamStats} from "../../../data/schema/stats";
 import {ActivatedRoute} from "@angular/router";
 import {StatsDataService} from "../../../data/service/stats-data.service";
 import {McplayerService} from "../../../core/service/mcplayer.service";
+import {TeamColor} from "../../../core/service/record.service";
 
 @Component({
   selector: 'app-game-stats',
@@ -12,6 +13,7 @@ import {McplayerService} from "../../../core/service/mcplayer.service";
 export class GameStatsComponent implements OnInit {
 
   gameRecord?: GameRecord
+  teamStatsOrder: TeamColor[] = ["RED", "BLUE"]
 
   constructor(private route: ActivatedRoute,
               private dataService: StatsDataService,
@@ -25,5 +27,10 @@ export class GameStatsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  findTeamStats(color: TeamColor): TeamStats | undefined {
+    return this.gameRecord?.teamStats.find(ts => ts.color === color)
+  }
+
 
 }

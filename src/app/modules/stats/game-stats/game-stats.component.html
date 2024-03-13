@@ -5,15 +5,19 @@
   <div class="section-break"></div>
 
   <h1 class="text-center">團隊數據</h1>
-  <div *ngFor="let team of gameRecord.teamStats" class="mt-5">
-    <app-team-stats [teamStats]="team" [gameRecord]="gameRecord"></app-team-stats>
+
+  <div *ngFor="let color of teamStatsOrder">
+    <div *ngIf="findTeamStats(color)" class="mt-5">
+      <app-team-stats *ngIf="findTeamStats(color)" [teamStats]="findTeamStats(color)!"
+        [gameRecord]="gameRecord"></app-team-stats>
+    </div>
   </div>
 
   <div class="section-break"></div>
   <app-team-compare
     [gameRecord]="gameRecord"
-    [leftTeamColor]="gameRecord.teamStats[0].color"
-    [rightTeamColor]="gameRecord.teamStats[1].color"
+    [leftTeamColor]="'RED'"
+    [rightTeamColor]="'BLUE'"
   >
   </app-team-compare>
 

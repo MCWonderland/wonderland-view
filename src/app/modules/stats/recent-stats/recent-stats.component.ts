@@ -25,6 +25,9 @@ export class RecentStatsComponent implements OnInit {
   ngOnInit(): void {
     this.statsDataService.listGameRecord().subscribe(gameRecords => {
       this.gameRecords = gameRecords
+      gameRecords.forEach(gameRecord =>
+        this.mcPlayerService.loadPlayers(gameRecord.playerStats.map(p => p.owner))
+      )
     })
   }
 
@@ -36,7 +39,24 @@ export class RecentStatsComponent implements OnInit {
     return this.mcPlayerService.getPlayer(uuid)?.username || ""
   }
 
+  getTeamPlayers(record: GameRecord, color: string): string {
+    return record.teamStats.filter(t => t.color === color).flatMap(t => t.members.map(p => this.getPlayerName(p))).join(", ")
+  }
+
   onSelect(record: GameRecord) {
     this.router.navigate(['stats', 'game', record.gameId])
+  }
+
+  getType(record: GameRecord) {
+    const maxCoreHealth = record.maxCoreHealth;
+
+    if (maxCoreHealth >= 650)
+      return "正式"
+
+    if (maxCoreHealth >= 300)
+      return "迷你"
+
+    return "快速戰鬥"
+
   }
 }

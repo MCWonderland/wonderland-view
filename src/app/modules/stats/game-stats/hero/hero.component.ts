@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {GameRecord} from "../../../../data/schema/stats";
 import {McplayerService} from "../../../../core/service/mcplayer.service";
 import {DateService} from "../../../../core/service/date.service";
+import {RecordService, TeamColor} from "../../../../core/service/record.service";
 
 @Component({
   selector: 'app-stats-hero',
@@ -15,13 +16,22 @@ export class HeroComponent implements OnInit {
 
   constructor(
     private mcPlayerService: McplayerService,
-    private dateService: DateService
+    private dateService: DateService,
+    private recordService: RecordService
   ) {
   }
 
   ngOnInit(): void {
   }
 
+
+  teamMembers(record: GameRecord, color: TeamColor): string[] {
+    return this.recordService.findTeamStats(record, color)?.members || [];
+  }
+
+  healthLeft(record: GameRecord, color: TeamColor): number {
+    return this.recordService.findTeamStats(record, color)?.healthLeft || 0;
+  }
 
   formatDuration(seconds: number): string {
     return this.dateService.formatDuration(seconds);
