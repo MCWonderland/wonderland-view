@@ -40,4 +40,18 @@ describe('StatsDataService', () => {
       .execute(callback)
   })
 
+  it("listGameRecord()", (callback) => {
+    const record = Fakes.createGameRecord()
+
+    testContainer
+      .onRequestUrl(urlJoin(environment.baseUrl, "stats/game"))
+      .withMethod("GET")
+      .verifyRequest((request) => {
+        //   assertWithCredential(request)
+      })
+      .mockResponse(200, {stats: [record]})
+      .actionThatSendRequest(service.listGameRecord())
+      .verifyActionReturn([record])
+      .execute(callback)
+  })
 });

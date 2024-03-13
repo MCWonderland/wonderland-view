@@ -1,1 +1,15 @@
-<p>hi</p>
+<div class="container-fluid">
+  <div class="mb-4">
+    <h1>最近的遊戲紀錄</h1>
+  </div>
+
+  <div class="card mb-2" *ngFor="let record of gameRecords">
+    <div class="card-body" (click)="onSelect(record)">
+      <h5 class="card-title">{{ record.title }}</h5>
+      <p class="card-text">{{ record.description }}</p>
+      <p class="card-text">
+        <b>遊戲時間: {{formatDate(record)}}</b>
+      </p>
+    </div>
+  </div>
+</div>

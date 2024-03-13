@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {GameRecord} from "../../../../data/schema/stats";
 import {McplayerService} from "../../../../core/service/mcplayer.service";
+import {DateService} from "../../../../core/service/date.service";
 
 @Component({
   selector: 'app-stats-hero',
@@ -12,7 +13,10 @@ export class HeroComponent implements OnInit {
   @Input()
   gameRecord!: GameRecord
 
-  constructor(private mcPlayerService: McplayerService) {
+  constructor(
+    private mcPlayerService: McplayerService,
+    private dateService: DateService
+  ) {
   }
 
   ngOnInit(): void {
@@ -20,15 +24,11 @@ export class HeroComponent implements OnInit {
 
 
   formatDuration(seconds: number): string {
-    seconds = Math.round(seconds);
-    const minutes = Math.floor(seconds / 60);
-    const secondsLeft = seconds % 60;
-    return `${minutes}:${secondsLeft.toString().padStart(2, "0")}`;
+    return this.dateService.formatDuration(seconds);
   }
 
   formatDate(date: string) {
-    const d = new Date(date);
-    return d.toLocaleDateString() + " " + d.toLocaleTimeString();
+    return this.dateService.formatDate(date);
   }
 
   getPlayerName(uuid: string): string {

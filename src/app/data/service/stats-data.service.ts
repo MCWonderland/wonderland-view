@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {GameRecord} from "../schema/stats";
 import {HttpClient} from "@angular/common/http";
 import urlJoin from "url-join";
@@ -15,6 +15,10 @@ export class StatsDataService {
 
   findGameRecord(gameId: string): Observable<GameRecord> {
     return this.httpClient.get<GameRecord>(urlJoin(environment.baseUrl, `stats/game/${gameId}`))
+  }
+
+  listGameRecord(): Observable<GameRecord[]> {
+    return this.httpClient.get<any>(urlJoin(environment.baseUrl, `stats/game`)).pipe(map(response => response.stats))
   }
 
 }
