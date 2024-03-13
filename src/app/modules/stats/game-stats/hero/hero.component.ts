@@ -29,8 +29,8 @@ export class HeroComponent implements OnInit {
     return this.recordService.findTeamStats(record, color)?.members || [];
   }
 
-  healthLeft(record: GameRecord, color: TeamColor): number {
-    return this.recordService.findTeamStats(record, color)?.healthLeft || 0;
+  healthLeft(record: GameRecord, color: TeamColor): string {
+    return this.recordService.findTeamStats(record, color)?.healthLeft?.toFixed(2) || "0";
   }
 
   formatDuration(seconds: number): string {

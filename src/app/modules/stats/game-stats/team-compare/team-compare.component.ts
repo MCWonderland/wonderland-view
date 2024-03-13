@@ -67,7 +67,7 @@ export class TeamCompareComponent implements OnInit {
         name: "藥水準確率",
         func: (teamColor: string) => {
           const stats = this.playerStatsForTeam(teamColor)
-          const acc = stats.map(value => playerStatsService.getPotionAcc(value)).reduce((a, b) => (a + b) / 2, 0)
+          const acc = stats.reduce((acc, value) => acc + this.playerStatsService.getPotionAcc(value), 0) / stats.length
           return (acc * 100).toFixed(2) + "%"
         }
       }
