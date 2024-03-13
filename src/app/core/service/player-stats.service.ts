@@ -18,8 +18,8 @@ export class PlayerStatsService {
   }
 
   getTotalEco(playerStats: PlayerStats): number {
-    return this.getEcoFor(playerStats, 'MINE') + this.getEcoFor(playerStats, 'KILL')
+    return this.getEcoFor(playerStats, 'MINE') + this.getEcoFor(playerStats, 'KILL') + this.getEcoFor(playerStats, 'KILL_BANK')
   }
 }
 
-export type EcoType = 'MINE' | 'KILL'
+export type EcoType = 'MINE' | 'KILL' | 'KILL_BANK'

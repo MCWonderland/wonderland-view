@@ -6,7 +6,7 @@ import {ContentLayoutComponent} from "./layout/content-layout/content-layout.com
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/auth/login',
+    redirectTo: '/stats',
     pathMatch: 'full'
   },
   {

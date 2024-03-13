@@ -48,6 +48,7 @@
             <th>職業</th>
             <th>挖礦</th>
             <th>擊殺</th>
+            <th>偷銀行</th>
             <th>總經濟</th>
           </tr>
         </thead>
@@ -59,6 +60,7 @@
             </td>
             <td>{{ service.getEcoFor(playerStats, "MINE") }}</td>
             <td>{{ service.getEcoFor(playerStats, "KILL") }}</td>
+            <td>{{ service.getEcoFor(playerStats, "KILL_BANK") }}</td>
             <td>{{ service.getTotalEco(playerStats) }}</td>
           </tr>
         </tbody>
