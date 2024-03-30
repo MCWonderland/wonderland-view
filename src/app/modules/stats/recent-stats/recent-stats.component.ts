@@ -44,7 +44,7 @@ export class RecentStatsComponent implements OnInit {
   }
 
   onSelect(record: GameRecord) {
-    this.router.navigate(['stats', 'game', record.gameId])
+    window.open('/stats/game/' + record.gameId, '_blank')
   }
 
   getType(record: GameRecord) {

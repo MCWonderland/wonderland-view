@@ -11,6 +11,7 @@ import {TeamStatsComponent} from './game-stats/team-stats/team-stats.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { KitRecordComponent } from './game-stats/kit-record/kit-record.component';
 import { TeamCompareComponent } from './game-stats/team-compare/team-compare.component';
+import { StatsVideoComponent } from './game-stats/stats-video/stats-video.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { TeamCompareComponent } from './game-stats/team-compare/team-compare.com
     PlayerStatsComponent,
     TeamStatsComponent,
     KitRecordComponent,
-    TeamCompareComponent
+    TeamCompareComponent,
+    StatsVideoComponent
   ],
   imports: [
     CommonModule,
