@@ -63,3 +63,16 @@ export interface TeamAbility {
   name: string;
   displayName: string;
 }
+
+
+export interface GameProgress {
+  gameTime: number;
+  teamState: TeamState[];
+}
+
+export interface TeamState {
+  teamColor: string;
+  healthLeft: number;
+  bankBalance: number;
+  playerBalanceTotal: number;
+}
