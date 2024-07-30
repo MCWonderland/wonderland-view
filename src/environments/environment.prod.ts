@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseUrl: "http://114.32.196.66:8080",
+  baseUrl: "https://api.castlewars.net",
   cookieKey: "wl-token"
 };
