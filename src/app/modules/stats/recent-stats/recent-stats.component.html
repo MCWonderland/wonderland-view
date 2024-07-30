@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="mb-4">
+    <h1>最近的遊戲紀錄</h1>
+  </div>
+
+  <div class="card mb-2" *ngFor="let record of gameRecords">
+    <div class="card-body" (click)="onSelect(record)">
+      <h5 class="card-title">{{ record.title }}</h5>
+      <p class="card-text">{{ record.description }}</p>
+      <table>
+        <tbody>
+          <tr>
+            <td class="pe-2">遊戲時間</td>
+            <td>{{ formatDate(record) }}</td>
+          </tr>
+          <tr>
+            <td>遊戲類型</td>
+            <td>{{ getType(record) }} ({{ record.maxCoreHealth }} HP)</td>
+          </tr>
+          <tr>
+            <td>地圖</td>
+            <td>{{ record.arenaId }}
+          </tr>
+          <tr>
+            <td>紅隊玩家</td>
+            <td>{{ getTeamPlayers(record, "RED") }}</td>
+          </tr>
+          <tr>
+            <td>藍隊玩家</td>
+            <td>{{ getTeamPlayers(record, "BLUE") }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

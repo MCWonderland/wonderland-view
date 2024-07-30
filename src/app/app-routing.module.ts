@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {AuthLayoutComponent} from "./layout/auth-layout/auth-layout.component";
 import {ContentLayoutComponent} from "./layout/content-layout/content-layout.component";
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/auth/login',
+    redirectTo: '/stats',
     pathMatch: 'full'
   },
   {
@@ -18,6 +18,11 @@ const routes: Routes = [
     path: 'home',
     component: ContentLayoutComponent,
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'stats',
+    component: ContentLayoutComponent,
+    loadChildren: () => import('./modules/stats/stats.module').then(m => m.StatsModule)
   },
   // Fallback when no prior routes is matched
   {path: '**', redirectTo: '/auth/login', pathMatch: 'full'}

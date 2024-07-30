@@ -1,0 +1,22 @@
+<div>
+  <ng-template #kitRecords>
+    <table class="table text-white">
+      <thead>
+        <tr>
+          <th scope="col">職業</th>
+          <th scope="col">遊戲時間</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let kit of changes">
+          <td>{{kit.kit}}</td>
+          <td>{{formatDuration(kit.gameTime)}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+
+  <div class="d-inline-block" placement="right" [ngbTooltip]="kitRecords">
+    {{getFirstKit()}} <span *ngIf="shouldDisplayKitChanges()" class="text-secondary">(轉職 {{getKitChangeCount()}} 次)</span>
+  </div>
+</div>

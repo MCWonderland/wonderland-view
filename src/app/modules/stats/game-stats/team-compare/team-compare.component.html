@@ -1,0 +1,39 @@
+<div class="container">
+  <h1 class="text-center mb-5">團隊總數據</h1>
+
+  <table class="table text-white text-center table-bordered mb-5">
+    <thead>
+      <tr>
+        <th scope="col">紅隊</th>
+        <th scope="col">數據</th>
+        <th scope="col">藍隊</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of teamStatsSum">
+        <td class="w-25">{{row.func(leftTeamColor)}}</td>
+        <td class="w-50">{{row.name}}</td>
+        <td class="w-25">{{row.func(rightTeamColor)}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1 class="text-center mb-5">技能施放次數</h1>
+
+  <table class="table text-white text-center table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">紅隊</th>
+        <th scope="col">數據</th>
+        <th scope="col">藍隊</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of abilityStatsSum">
+        <td class="w-25">{{row.func(leftTeamColor)}}</td>
+        <td class="w-50">{{row.name}}</td>
+        <td class="w-25">{{row.func(rightTeamColor)}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

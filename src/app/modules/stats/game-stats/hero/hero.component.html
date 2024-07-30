@@ -1,0 +1,71 @@
+<div class="row d-flex align-items-center">
+  <div class="col-md-3" style="padding: 0;">
+    <div class="container-fluid h-100">
+      <div class="row h-100 justify-content-center align-items-center">
+        <ng-container *ngFor="let uuid of teamMembers(gameRecord,'RED')">
+          <div class="col-12 my-2">
+            <div class="card d-flex flex-row align-items-center">
+              <img [src]="'https://crafatar.com/avatars/' + uuid + '?size=64'" class="card-img-top p-3"
+                alt="Minecraft Head" style="width: 128px; height: 128px">
+              <div class="card-body">
+                <h5 class="card-title text-center">{{ (getPlayerName(uuid)) }}</h5>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 text-center h-100" style="padding: 0;">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <h1>{{ gameRecord.title }}</h1>
+        <div>{{ gameRecord.description }}</div>
+        <h1 style="font-size: 5rem" class="my-5">
+          <span style="color: #d86161">{{ healthLeft(gameRecord, 'RED') }}</span>
+          -
+          <span style="color: #479bd9">{{ healthLeft(gameRecord, 'BLUE') }}</span>
+        </h1>
+        <table class="table table-bordered text-white" style="border-color: rgba(154,154,154,0.32)">
+          <tbody>
+            <tr>
+              <td class="w-50">時長</td>
+              <td>{{ formatDuration(gameRecord.duration) }}</td>
+            </tr>
+            <tr>
+              <td>賽事日期</td>
+              <td>{{ formatDate(gameRecord.date) }}</td>
+            </tr>
+            <tr>
+              <td>地圖</td>
+              <td>{{ gameRecord.arenaId }}</td>
+            </tr>
+            <tr>
+              <td>核心血量</td>
+              <td>{{ gameRecord.maxCoreHealth }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3" style="padding: 0;">
+    <div class="container-fluid h-100">
+      <div class="row h-100 justify-content-center align-items-center">
+        <ng-container *ngFor="let uuid of teamMembers(gameRecord,'BLUE')">
+          <div class="col-12 my-2">
+            <div class="card d-flex flex-row align-items-center">
+              <img [src]="'https://crafatar.com/avatars/' + uuid + '?size=64'" class="card-img-top p-3"
+                alt="Minecraft Head" style="width: 128px; height: 128px">
+              <div class="card-body">
+                <h5 class="card-title text-center">{{ (getPlayerName(uuid)) }}</h5>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
