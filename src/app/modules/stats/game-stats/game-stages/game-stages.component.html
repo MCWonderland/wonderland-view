@@ -1,24 +1,29 @@
 <div class="container-fluid">
   <div class="row text-center justify-content-center mb-5">
     <div class="col-xl-6 col-lg-8">
-      <h2 class="font-weight-bold">遊戲時間軸</h2>
-      <p class="text-muted">每個階段開啟的時間</p>
+      <h2 class="font-weight-bold">遊戲數據變化</h2>
+      <p class="text-muted">隨著時間進行的核心血量和隊伍經濟變化</p>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
-      <div class="timeline-steps aos-init aos-animate" data-aos="fade-up">
-
-        <div class="timeline-step" *ngFor="let stage of gameRecord.timers">
-          <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2003">
-            <div class="inner-circle"></div>
-            <p class="h6 mt-3 mb-1">{{stage.name}}</p>
-            <p class="h6 text-muted mb-0 mb-lg-0">{{stage.toggleTiming}}</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <canvas id="gameProgressChart" width="700" height="200"></canvas>
   </div>
+
+<!--  <div class="row">-->
+<!--    <div class="col">-->
+<!--      <div class="timeline-steps aos-init aos-animate" data-aos="fade-up">-->
+
+<!--        <div class="timeline-step" *ngFor="let stage of gameRecord.timers">-->
+<!--          <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title=""-->
+<!--            data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2003">-->
+<!--            <div class="inner-circle"></div>-->
+<!--            <p class="h6 mt-3 mb-1">{{ stage.name }}</p>-->
+<!--            <p class="h6 text-muted mb-0 mb-lg-0">{{ stage.toggleTiming }}</p>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 </div>

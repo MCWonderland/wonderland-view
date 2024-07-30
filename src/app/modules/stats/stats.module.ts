@@ -26,12 +26,12 @@ import { StatsVideoComponent } from './game-stats/stats-video/stats-video.compon
     TeamCompareComponent,
     StatsVideoComponent
   ],
-  imports: [
-    CommonModule,
-    StatsRoutingModule,
-    DataModule,
-    NgbModule,
-  ]
+    imports: [
+        CommonModule,
+        StatsRoutingModule,
+        DataModule,
+        NgbModule,
+    ]
 })
 export class StatsModule {
 }
